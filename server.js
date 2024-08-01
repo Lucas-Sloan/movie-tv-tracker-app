@@ -35,6 +35,7 @@ app.use(
 app.use(express.static('public'));
 
 // Routes
+app.use(passUserToView); 
 app.get('/', (req, res) => {
   res.render('index.ejs', {
     user: req.session.user,
