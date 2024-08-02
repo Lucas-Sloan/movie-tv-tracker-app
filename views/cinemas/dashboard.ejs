@@ -7,39 +7,78 @@
   <title>Dashboard</title>
 </head>
 <body>
-<%- include('../partials/header') %>
-<%- include('../partials/nav') %>
+  <%- include('../partials/header') %>
+  <%- include('../partials/nav') %>
   <header>
     <h1>Welcome, <%= user.username %>!</h1>
   </header>
+  <nav>
+    <ul>
+      <li><a href="/cinemas/dashboard">All Media</a></li>
+      <li><a href="/cinemas/tvshows">TV Shows</a></li>
+      <li><a href="/cinemas/movies">Movies</a></li>
+    </ul>
+  </nav>
   <main>
-    <h2>Your TV Shows</h2>
-    <ul>
-      <% if (tvshows.length > 0) { %>
-        <% tvshows.forEach(tvshow => { %>
-          <li>
-            <a href="/cinemas/show/<%= tvshow._id %>"><%= tvshow.title %></a>
-            <a href="/cinemas/edit-tv/<%= tvshow._id %>">Edit</a>
-          </li>
-        <% }) %>
-      <% } else { %>
-        <li>No TV Shows found</li>
-      <% } %>
-    </ul>
+    <h2>TV Shows</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Actions</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (tvshows.length > 0) { %>
+          <% tvshows.forEach((tvshow, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><a href="/cinemas/show/<%= tvshow._id %>"><%= tvshow.title %></a></td>
+              <td><a href="/cinemas/edit-tvshow/<%= tvshow._id %>">Edit</a></td>
+              <td><%= tvshow.score %></td>
+              <td><%= tvshow.status %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="5">You haven't added any TV Shows yet</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
     
-    <h2>Your Movies</h2>
-    <ul>
-      <% if (movies.length > 0) { %>
-        <% movies.forEach(movie => { %>
-          <li>
-            <a href="/cinemas/show/<%= movie._id %>"><%= movie.title %></a>
-            <a href="/cinemas/editmovies/<%= movie._id %>">Edit</a>
-          </li>
-        <% }) %>
-      <% } else { %>
-        <li>No Movies found</li>
-      <% } %>
-    </ul>
+    <h2>Movies</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Actions</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (movies.length > 0) { %>
+          <% movies.forEach((movie, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><a href="/cinemas/show/<%= movie._id %>"><%= movie.title %></a></td>
+              <td><a href="/cinemas/edit-movie/<%= movie._id %>">Edit</a></td>
+              <td><%= movie.score %></td>
+              <td><%= movie.status %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="5">You haven't added any Movies yet</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
   </main>
 </body>
 </html>
