@@ -11,7 +11,7 @@ const cinemaSchema = new mongoose.Schema({
     type: { type: String, enum: ["Movie", "TV Show"], required: true },
     api_key: { type: String },
     notes: {type: String }
-});
+}, {timestamps: true });
 
 const Cinema = mongoose.model('Cinema', cinemaSchema);
 
