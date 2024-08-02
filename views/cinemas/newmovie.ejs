@@ -13,8 +13,8 @@
     <h1>Add Movies</h1>
     <p>Use this form to add a new movie to your collection</p>
     <form action="/cinemas/newmovie" method="POST">
-      <label for="title">Title</label>
-      <input type="text" name="title" id="title" required />
+      <input type="text" name="title" id="title" list="titles" required />
+      <datalist id="titles"></datalist>
       
       <label for="score">Score</label>
       <select name="score" id="score" required>
@@ -38,5 +38,6 @@
       <button type="submit">Save movie information</button>
     </form>
   </div>
+  <script src="/js/cinemas.js"></script>
 </body>
 </html>

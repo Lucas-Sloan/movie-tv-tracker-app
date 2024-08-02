@@ -1,6 +1,7 @@
 //controllers/cinemas.js
 const express = require('express');
 const router = express.Router();
+const axios = require('axios');
 const Cinema = require('../models/cinema.js');
 const isSignedIn = require('../middleware/is-signed-in.js');
 
@@ -99,9 +100,16 @@ router.post('/newtv', isSignedIn, async (req, res) => {
 
 router.get('/show/:id', isSignedIn, async (req, res) => {
   try {
-    const cinema = await Cinema.findById(req.params.id);
+    const cinema = await Cinema.findById(req.params.id).lean();
+    const apiKey = process.env.OMDB_API_KEY;
+    const response = await axios.get(`http://www.omdbapi.com/?t=${cinema.title}&apikey=${apiKey}`);
+    const data = response.data;
+
+    const description = data.Response === 'True' ? data.Plot : 'Description not available';
+
     res.render('cinemas/show.ejs', {
       cinema,
+      description,
     });
   } catch (error) {
     console.log(error);
@@ -164,5 +172,41 @@ router.post('/edit-tv/:id', isSignedIn, async (req, res) => {
     res.redirect('/cinemas/dashboard');
   }
 });
+
+router.get('/titles', isSignedIn, async (req, res) => {
+  try {
+    const query = req.query.q;
+    const apiKey = process.env.OMDB_API_KEY;
+    const response = await axios.get(`http://www.omdbapi.com/?s=${query}&apikey=${apiKey}`);
+    const data = response.data;
+    if (data.Response === 'True') {
+      const titles = data.Search.map(item => item.Title);
+      res.json(titles);
+    } else {
+      res.json([]);
+    }
+  } catch (error) {
+    console.error('Error fetching titles:', error);
+    res.status(500).json([]);
+  }
+});
+
+router.get('/description', isSignedIn, async (req, res) => {
+  try {
+    const title = req.query.title;
+    const apiKey = process.env.OMDB_API_KEY;
+    const response = await axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`);
+    const data = response.data;
+    if (data.Response === 'True') {
+      res.json({ description: data.Plot });
+    } else {
+      res.json({ description: 'Description not available' });
+    }
+  } catch (error) {
+    console.error('Error fetching description:', error);
+    res.status(500).json({ description: 'Description not available' });
+  }
+});
+
 
 module.exports = router;

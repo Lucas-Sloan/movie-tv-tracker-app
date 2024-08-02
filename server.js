@@ -39,14 +39,14 @@ app.use(express.static('public'));
 
 // Routes
 app.use(passUserToView); 
+app.use('/auth', authController);
+app.use('/cinemas', cinemasController);
+
 app.get('/', (req, res) => {
   res.render('index.ejs', {
     user: req.session.user,
   });
 });
-
-app.use('/auth', authController);
-app.use('/cinemas', cinemasController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
