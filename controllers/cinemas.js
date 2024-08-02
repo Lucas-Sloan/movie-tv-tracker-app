@@ -21,6 +21,21 @@ router.get('/dashboard', isSignedIn, async (req, res) => {
   }
 });
 
+router.get('/movies', isSignedIn, async (req, res) => {
+  try {
+    const userId = req.session.user._id;
+    const movies = await Cinema.find({ user: userId, type: 'Movie' });
+
+    res.render('cinemas/movies.ejs', {
+      user: req.session.user,
+      movies
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
 router.get('/newmovie', isSignedIn, (req, res) => {
   res.render('cinemas/newmovie.ejs');
 });
