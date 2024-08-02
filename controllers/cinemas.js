@@ -32,6 +32,7 @@ router.post('/newmovie', isSignedIn, async (req, res) => {
       title: req.body.title,
       score: req.body.score,
       status: req.body.status,
+      notes: req.body.notes,
       description: req.body.description,
       type: 'Movie'
     });
@@ -54,6 +55,7 @@ router.post('/newtv', isSignedIn, async (req, res) => {
       title: req.body.title,
       score: req.body.score,
       status: req.body.status,
+      notes: req.body.notes,
       description: req.body.description,
       type: 'TV Show'
     });
@@ -62,6 +64,18 @@ router.post('/newtv', isSignedIn, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.redirect('/');
+  }
+});
+
+router.get('/show/:id', isSignedIn, async (req, res) => {
+  try {
+    const cinema = await Cinema.findById(req.params.id);
+    res.render('cinemas/show.ejs', {
+      cinema,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/cinemas/dashboard');
   }
 });
 

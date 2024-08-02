@@ -17,8 +17,7 @@
     <ul>
       <% if (tvshows.length > 0) { %>
         <% tvshows.forEach(tvshow => { %>
-          <li><%= tvshow.title %></li>
-        <% }) %>
+          <li><a href="/cinemas/show/<%= tvshow._id %>"><%= tvshow.title %></a></li>        <% }) %>
       <% } else { %>
         <li>No TV Shows found</li>
       <% } %>
@@ -28,8 +27,7 @@
     <ul>
       <% if (movies.length > 0) { %>
         <% movies.forEach(movie => { %>
-          <li><%= movie.title %></li>
-        <% }) %>
+          <li><a href="/cinemas/show/<%= movie._id %>"><%= movie.title %></a></li>        <% }) %>
       <% } else { %>
         <li>No Movies found</li>
       <% } %>
