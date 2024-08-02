@@ -17,7 +17,11 @@
     <ul>
       <% if (tvshows.length > 0) { %>
         <% tvshows.forEach(tvshow => { %>
-          <li><a href="/cinemas/show/<%= tvshow._id %>"><%= tvshow.title %></a></li>        <% }) %>
+          <li>
+            <a href="/cinemas/show/<%= tvshow._id %>"><%= tvshow.title %></a>
+            <a href="/cinemas/edit-tv/<%= tvshow._id %>">Edit</a>
+          </li>
+        <% }) %>
       <% } else { %>
         <li>No TV Shows found</li>
       <% } %>

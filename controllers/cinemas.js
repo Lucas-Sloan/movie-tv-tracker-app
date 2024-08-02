@@ -107,4 +107,32 @@ router.post('/editmovies/:id', isSignedIn, async (req, res) => {
   }
 });
 
+router.get('/edit-tv/:id', isSignedIn, async (req, res) => {
+  try {
+    const tvshow = await Cinema.findById(req.params.id);
+    res.render('cinemas/edit-tv.ejs', {
+      tvshow,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/cinemas/dashboard');
+  }
+});
+
+router.post('/edit-tv/:id', isSignedIn, async (req, res) => {
+  try {
+    await Cinema.findByIdAndUpdate(req.params.id, {
+      title: req.body.title,
+      score: req.body.score,
+      status: req.body.status,
+      description: req.body.description,
+      notes: req.body.notes,
+    });
+    res.redirect('/cinemas/dashboard');
+  } catch (error) {
+    console.log(error);
+    res.redirect('/cinemas/dashboard');
+  }
+});
+
 module.exports = router;

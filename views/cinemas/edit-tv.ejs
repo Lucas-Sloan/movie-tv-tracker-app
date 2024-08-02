@@ -1,0 +1,40 @@
+<!-- views/cinemas/edit-tv.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit TV Show</title>
+</head>
+<body>
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+  <div class="container">
+    <h1>Edit TV Show</h1>
+    <p>Use this form to edit your TV show information</p>
+    <form action="/cinemas/edit-tv/<%= tvshow._id %>" method="POST">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" value="<%= tvshow.title %>" required />
+      
+      <label for="score">Score</label>
+      <select name="score" id="score" required>
+        <% for (let i = 1; i <= 10; i++) { %>
+          <option value="<%= i %>" <%= tvshow.score === i ? 'selected' : '' %>><%= i %></option>
+        <% } %>
+      </select>
+      
+      <label for="status">Status</label>
+      <select name="status" id="status" required>
+        <option value="Completed" <%= tvshow.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+        <option value="Haven't Completed" <%= tvshow.status === "Haven't Completed" ? 'selected' : '' %>>Haven't Completed</option>
+        <option value="Plan to Watch" <%= tvshow.status === 'Plan to Watch' ? 'selected' : '' %>>Plan to Watch</option>
+      </select>
+      
+      <label for="notes">Notes (Optional)</label>
+      <textarea name="notes" id="notes"><%= tvshow.notes %></textarea>
+      
+      <button type="submit">Save TV Show information</button>
+    </form>
+  </div>
+</body>
+</html>
