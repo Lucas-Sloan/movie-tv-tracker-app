@@ -27,7 +27,11 @@
     <ul>
       <% if (movies.length > 0) { %>
         <% movies.forEach(movie => { %>
-          <li><a href="/cinemas/show/<%= movie._id %>"><%= movie.title %></a></li>        <% }) %>
+          <li>
+            <a href="/cinemas/show/<%= movie._id %>"><%= movie.title %></a>
+            <a href="/cinemas/editmovies/<%= movie._id %>">Edit</a>
+          </li>
+        <% }) %>
       <% } else { %>
         <li>No Movies found</li>
       <% } %>

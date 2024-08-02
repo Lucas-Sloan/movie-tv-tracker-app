@@ -79,4 +79,32 @@ router.get('/show/:id', isSignedIn, async (req, res) => {
   }
 });
 
+router.get('/editmovies/:id', isSignedIn, async (req, res) => {
+  try {
+    const movie = await Cinema.findById(req.params.id);
+    res.render('cinemas/editmovies.ejs', {
+      movie,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/cinemas/dashboard');
+  }
+});
+
+router.post('/editmovies/:id', isSignedIn, async (req, res) => {
+  try {
+    await Cinema.findByIdAndUpdate(req.params.id, {
+      title: req.body.title,
+      score: req.body.score,
+      status: req.body.status,
+      description: req.body.description,
+      notes: req.body.notes,
+    });
+    res.redirect('/cinemas/dashboard');
+  } catch (error) {
+    console.log(error);
+    res.redirect('/cinemas/dashboard');
+  }
+});
+
 module.exports = router;
