@@ -1,4 +1,4 @@
-<!-- views/cinemas/community.ejs -->
+<!-- views/users/community.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@
     <div class="community-grid">
       <% latestEntries.forEach(entry => { %>
         <div class="community-entry">
-          <h2><%= entry.userDetails.username %></h2>
+          <h2><a href="/users/binder/<%= entry.userDetails._id %>"><%= entry.userDetails.username %></a></h2>
           <p>Latest Addition</p>
           <div class="review">
             <h3><%= entry.latestEntry.title %></h3>

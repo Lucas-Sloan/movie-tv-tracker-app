@@ -1,0 +1,24 @@
+<!-- views/users/show.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= cinema.title %></title>
+</head>
+<body>
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+  <div class="container">
+    <h1><%= cinema.title %></h1>
+    <div class="details">
+      <p><label>Type:</label> <%= cinema.type %></p>
+      <p><label>Description:</label> <%= description %></p>
+      <p><label>Score:</label> <%= cinema.score %></p>
+      <p><label>Status:</label> <%= cinema.status %></p>
+      <p><label>Notes:</label> <%= cinema.notes %></p>
+    </div>
+    <a href="/users/binder/<%= cinema.user %>">Back to Binder</a>
+  </div>
+</body>
+</html>

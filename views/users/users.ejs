@@ -1,0 +1,80 @@
+<!-- views/users/users.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Binder</title>
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <%- include('../partials/nav') %>
+  <header>
+    <h1><%= user.username %>'s BINDER</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="/users/binder/<%= user._id %>"><strong>All Media</strong></a></li>
+      <li><a href="/users/tvshows/<%= user._id %>">TV Shows</a></li>
+      <li><a href="/users/movies/<%= user._id %>">Movies</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h2>TV Shows</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (tvshows.length > 0) { %>
+          <% tvshows.forEach((tvshow, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><a href="/users/show/<%= tvshow._id %>"><%= tvshow.title %></a></td>
+              <td><%= tvshow.score %></td>
+              <td><%= tvshow.status %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="4">This user hasn't added any TV Shows yet</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+    
+    <h2>Movies</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (movies.length > 0) { %>
+          <% movies.forEach((movie, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><a href="/users/show/<%= movie._id %>"><%= movie.title %></a></td>
+              <td><%= movie.score %></td>
+              <td><%= movie.status %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="4">This user hasn't added any Movies yet</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
