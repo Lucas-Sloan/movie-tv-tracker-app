@@ -13,8 +13,8 @@
     <h1>Edit TV Show</h1>
     <p>Use this form to edit your TV show information</p>
     <form action="/cinemas/edit-tv/<%= tvshow._id %>" method="POST">
-      <label for="title">Title</label>
-      <input type="text" name="title" id="title" value="<%= tvshow.title %>" required />
+        <input type="text" name="title" id="title" list="titles" required />
+        <datalist id="titles"></datalist>
       
       <label for="score">Score</label>
       <select name="score" id="score" required>
