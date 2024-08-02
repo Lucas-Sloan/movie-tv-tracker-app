@@ -22,9 +22,13 @@
     
     <h2>Your Movies</h2>
     <ul>
-      <% movies.forEach(movie => { %>
-        <li><%= movie.title %></li>
-      <% }) %>
+      <% if (movies.length > 0) { %>
+        <% movies.forEach(movie => { %>
+          <li><%= movie.title %></li>
+        <% }) %>
+      <% } else { %>
+        <li>No Movies found</li>
+      <% } %>
     </ul>
   </main>
 </body>

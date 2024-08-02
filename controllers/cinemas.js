@@ -10,11 +10,36 @@ router.get('/dashboard', isSignedIn, async (req, res) => {
     const movies = await Cinema.find({ user: userId, type: 'Movie' });
     const tvshows = await Cinema.find({ user: userId, type: 'TV Show' });
 
+    console.log("Movies:", movies); // Log movies to console
+    console.log("TV Shows:", tvshows); // Log TV shows to console
+
     res.render('cinemas/dashboard.ejs', {
       user: req.session.user,
       movies,
       tvshows
     });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+router.get('/newmovie', isSignedIn, (req, res) => {
+  res.render('cinemas/newmovie.ejs');
+});
+
+router.post('/newmovie', isSignedIn, async (req, res) => {
+  try {
+    const newMovie = new Cinema({
+      user: req.session.user._id,
+      title: req.body.title,
+      score: req.body.score,
+      status: req.body.status,
+      description: req.body.description,
+      type: 'Movie'
+    });
+    await newMovie.save();
+    res.redirect('/cinemas/dashboard');
   } catch (error) {
     console.log(error);
     res.redirect('/');
