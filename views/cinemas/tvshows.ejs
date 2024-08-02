@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Shows</title>
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <%- include('../partials/nav') %>
+  <header>
+    <h1>MY BINDER</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="/cinemas/dashboard">All Media</a></li>
+      <li><a href="/cinemas/tvshows"><strong>TV Shows</strong></a></li>
+      <li><a href="/cinemas/movies">Movies</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h2>TV Shows</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Actions</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (tvshows.length > 0) { %>
+          <% tvshows.forEach((tvshow, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><a href="/cinemas/show/<%= tvshow._id %>"><%= tvshow.title %></a></td>
+              <td><a href="/cinemas/edit-tvshow/<%= tvshow._id %>">Edit</a></td>
+              <td><%= tvshow.score %></td>
+              <td><%= tvshow.status %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="5">You haven't added any TV Shows yet</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

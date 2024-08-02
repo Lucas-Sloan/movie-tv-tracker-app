@@ -36,6 +36,21 @@ router.get('/movies', isSignedIn, async (req, res) => {
   }
 });
 
+router.get('/tvshows', isSignedIn, async (req, res) => {
+  try {
+    const userId = req.session.user._id;
+    const tvshows = await Cinema.find({ user: userId, type: 'TV Show' });
+
+    res.render('cinemas/tvshows.ejs', {
+      user: req.session.user,
+      tvshows
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
 router.get('/newmovie', isSignedIn, (req, res) => {
   res.render('cinemas/newmovie.ejs');
 });
