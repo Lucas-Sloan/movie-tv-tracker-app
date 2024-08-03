@@ -13,7 +13,8 @@
     <h1>Edit Movie</h1>
     <p>Use this form to edit your movie information</p>
     <form action="/cinemas/editmovies/<%= movie._id %>" method="POST">
-      <input type="text" name="title" id="title" list="titles" required />
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" list="titles" value="<%= movie.title %>" required />
       <datalist id="titles"></datalist>
       
       <label for="score">Score</label>
@@ -35,6 +36,10 @@
       
       <button type="submit">Save movie information</button>
     </form>
+    <form action="/cinemas/delete-movie/<%= movie._id %>" method="POST">
+      <button type="submit" onclick="return confirm('Are you sure you want to delete this Movie?')">Delete Movie</button>
+    </form>
   </div>
+  <script src="/js/cinemas.js"></script>
 </body>
 </html>

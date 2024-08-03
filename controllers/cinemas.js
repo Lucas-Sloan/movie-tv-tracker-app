@@ -173,6 +173,26 @@ router.post('/edit-tv/:id', isSignedIn, async (req, res) => {
   }
 });
 
+router.post('/delete-tv/:id', isSignedIn, async (req, res) => {
+  try {
+    await Cinema.findByIdAndDelete(req.params.id);
+    res.redirect('/cinemas/dashboard');
+  } catch (error) {
+    console.log(error);
+    res.redirect('/cinemas/dashboard');
+  }
+});
+
+router.post('/delete-movie/:id', isSignedIn, async (req, res) => {
+  try {
+    await Cinema.findByIdAndDelete(req.params.id);
+    res.redirect('/cinemas/dashboard');
+  } catch (error) {
+    console.log(error);
+    res.redirect('/cinemas/dashboard');
+  }
+});
+
 router.get('/titles', isSignedIn, async (req, res) => {
   try {
     const query = req.query.q;
