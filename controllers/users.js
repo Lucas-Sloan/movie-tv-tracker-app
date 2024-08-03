@@ -54,6 +54,38 @@ router.get('/binder/:userId', isSignedIn, async (req, res) => {
       res.redirect('/users/community');
     }
 });
+
+router.get('/tvshows/:userId', isSignedIn, async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId);
+    const tvshows = await Cinema.find({ user: userId, type: 'TV Show' });
+
+    res.render('users/tvshows.ejs', {
+      user,
+      tvshows
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/users/community');
+  }
+});
+
+router.get('/movies/:userId', isSignedIn, async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId);
+    const movies = await Cinema.find({ user: userId, type: 'Movie' });
+
+    res.render('users/movies.ejs', {
+      user,
+      movies
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/users/community');
+  }
+});
   
 router.get('/show/:id', isSignedIn, async (req, res) => {
     try {

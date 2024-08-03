@@ -1,0 +1,52 @@
+<!-- views/users/movies.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= user.username %>'s Movies</title>
+</head>
+<body>
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+  <header>
+    <h1><%= user.username %>'s BINDER</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="/users/binder/<%= user._id %>">All Media</a></li>
+      <li><a href="/users/tvshows/<%= user._id %>">TV Shows</a></li>
+      <li><a href="/users/movies/<%= user._id %>"><strong>Movies</strong></a></li>
+    </ul>
+  </nav>
+  <main>
+    <h2>Movies</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (movies.length > 0) { %>
+          <% movies.forEach((movie, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><a href="/users/show/<%= movie._id %>"><%= movie.title %></a></td>
+              <td><%= movie.score %></td>
+              <td><%= movie.status %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="4">No Movies found</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
