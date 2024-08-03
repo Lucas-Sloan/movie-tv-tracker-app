@@ -5,21 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= user.username %>'s TV Shows</title>
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/pages/dashboard.css">
 </head>
 <body>
-<%- include('../partials/header') %>
 <%- include('../partials/nav') %>
-  <header>
+  <header class="dashboard-header">
     <h1><%= user.username %>'s BINDER</h1>
   </header>
-  <nav>
+  <nav class="dashboard-nav">
     <ul>
       <li><a href="/users/binder/<%= user._id %>">All Media</a></li>
       <li><a href="/users/tvshows/<%= user._id %>"><strong>TV Shows</strong></a></li>
       <li><a href="/users/movies/<%= user._id %>">Movies</a></li>
     </ul>
   </nav>
-  <main>
+  <main class="dashboard-main">
     <h2>TV Shows</h2>
     <table>
       <thead>

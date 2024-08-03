@@ -1,9 +1,21 @@
 <!-- partials/nav.ejs -->
-<nav>
+<link rel="stylesheet" href="/css/nav.css">
+<header class="header">
+  <nav class="navigation">
     <ul>
-        <li><a href="/cinemas/dashboard">My Binder</a></li>
-        <li><a href="/users/community">Community</a></li>
-        <li><a href="/cinemas/newmovie">Add Movie</a></li>
-        <li><a href="/cinemas/newtv">Add TV Show</a></li>
+      <li><a href="/cinemas/dashboard">My Binder</a></li>
+      <li><a href="/users/community">Community</a></li>
+      <li><a href="/cinemas/newmovie">Add Movie</a></li>
+      <li><a href="/cinemas/newtv">Add TV Show</a></li>
     </ul>
-</nav>
+  </nav>
+  <h2 class="logo">Binge Binder</h2>
+  <% if (user) { %>
+    <div class="user-info">
+      <h2 class="username"><%= user.username %></h2>
+      <form action="/auth/sign-out" method="GET" class="sign-out-form">
+        <button type="submit" class="sign-out-button">Sign Out</button>
+      </form>
+    </div>
+  <% } %>
+</header>

@@ -1,0 +1,85 @@
+/* public/css/nav.css */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: #1e1e1e;
+    color: white;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+  
+.header .logo {
+    flex: 1;
+    display: flex;
+    justify-content: start; 
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+  
+.header .navigation {
+    flex: 1;
+    display: flex;
+    justify-content: start; 
+    margin-left: 10px;
+}
+  
+.header .navigation ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.header .navigation ul li {
+    margin-right: 1rem;
+}
+  
+.header .navigation ul li a {
+    color: white;
+    text-decoration: none;
+}
+  
+.header .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
+}
+  
+.header .username {
+    margin-right: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+  
+.header .sign-out-form {
+    margin: 0;
+}
+  
+.header .sign-out-button {
+    padding: 0.5rem 1rem;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+  
+.header .sign-out-button:hover {
+    background-color: #e84118;
+}
+  
