@@ -15,9 +15,9 @@
       <% latestEntries.forEach(entry => { %>
         <div class="community-entry">
           <h2><a href="/users/binder/<%= entry.userDetails._id %>"><%= entry.userDetails.username %></a></h2>
-          <p>Latest Addition</p>
+          <p>Latest Entries</p>
           <div class="review">
-            <h3><%= entry.latestEntry.title %></h3>
+            <h3><a href="/users/show/<%= entry.latestEntry._id %>"><%= entry.latestEntry.title %></a></h3>
             <p>Score: <%= entry.latestEntry.score %>/10</p>
             <p>Status: <%= entry.latestEntry.status %></p>
           </div>
