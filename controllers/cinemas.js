@@ -11,6 +11,14 @@ router.get('/dashboard', isSignedIn, async (req, res) => {
     const movies = await Cinema.find({ user: userId, type: 'Movie' });
     const tvshows = await Cinema.find({ user: userId, type: 'TV Show' });
 
+    const sortStatus = (a, b) => {
+      const statusOrder = { "Plan to Watch": 1, "Haven't Completed": 2, "Completed": 3 };
+      return statusOrder[a.status] - statusOrder[b.status];
+    };
+
+    movies.sort(sortStatus);
+    tvshows.sort(sortStatus);
+
     res.render('cinemas/dashboard.ejs', {
       user: req.session.user,
       movies,
@@ -27,6 +35,13 @@ router.get('/movies', isSignedIn, async (req, res) => {
     const userId = req.session.user._id;
     const movies = await Cinema.find({ user: userId, type: 'Movie' });
 
+    const sortStatus = (a, b) => {
+      const statusOrder = { "Plan to Watch": 1, "Haven't Completed": 2, "Completed": 3 };
+      return statusOrder[a.status] - statusOrder[b.status];
+    };
+
+    movies.sort(sortStatus);
+
     res.render('cinemas/movies.ejs', {
       user: req.session.user,
       movies
@@ -41,6 +56,13 @@ router.get('/tvshows', isSignedIn, async (req, res) => {
   try {
     const userId = req.session.user._id;
     const tvshows = await Cinema.find({ user: userId, type: 'TV Show' });
+
+    const sortStatus = (a, b) => {
+      const statusOrder = { "Plan to Watch": 1, "Haven't Completed": 2, "Completed": 3 };
+      return statusOrder[a.status] - statusOrder[b.status];
+    };
+
+    tvshows.sort(sortStatus);
 
     res.render('cinemas/tvshows.ejs', {
       user: req.session.user,

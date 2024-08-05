@@ -19,4 +19,4 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error fetching titles:', error);
       }
     }
-  });
+});

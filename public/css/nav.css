@@ -25,6 +25,7 @@ html, body {
     justify-content: start; 
     font-size: 1.5rem;
     font-weight: bold;
+    padding-left: 10px;
 }
   
 .header .navigation {
