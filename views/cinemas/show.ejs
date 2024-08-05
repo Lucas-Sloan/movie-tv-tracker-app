@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= cinema.title %></title>
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/pages/show.css">
 </head>
 <body>
 <%- include('../partials/nav') %>
@@ -17,7 +19,6 @@
       <p><label>Status:</label> <%= cinema.status %></p>
       <p><label>Notes:</label> <%= cinema.notes %></p>
     </div>
-    <a href="/cinemas/dashboard">Back to Dashboard</a>
-  </div>
+    <a href="/cinemas/dashboard" class="back-link">Back to Dashboard</a>  </div>
 </body>
 </html>
