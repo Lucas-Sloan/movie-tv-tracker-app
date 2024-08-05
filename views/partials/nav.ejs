@@ -10,9 +10,9 @@
     </ul>
   </nav>
   <h2 class="logo">Binge Binder</h2>
-  <% if (user) { %>
+  <% if (loggedInUser) { %>
     <div class="user-info">
-      <h2 class="username"><%= user.username %></h2>
+      <h2 class="username"><%= loggedInUser.username %></h2>
       <form action="/auth/sign-out" method="GET" class="sign-out-form">
         <button type="submit" class="sign-out-button">Sign Out</button>
       </form>

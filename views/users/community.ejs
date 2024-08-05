@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Community</title>
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/pages/community.css">
 </head>
 <body>
 <%- include('../partials/nav') %>
@@ -14,7 +16,7 @@
       <% latestEntries.forEach(entry => { %>
         <div class="community-entry">
           <h2><a href="/users/binder/<%= entry.userDetails._id %>"><%= entry.userDetails.username %></a></h2>
-          <p>Latest Entries</p>
+          <p><strong>Latest Entry:</strong></p>
           <div class="review">
             <h3><a href="/users/show/<%= entry.latestEntry._id %>"><%= entry.latestEntry.title %></a></h3>
             <p>Score: <%= entry.latestEntry.score %>/10</p>

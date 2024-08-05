@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/css/pages/dashboard.css">
 </head>
 <body>
-  <%- include('../partials/nav') %>
+  <%- include('../partials/nav', { loggedInUser: loggedInUser }) %>
   <header class="dashboard-header">
     <h1><%= user.username %>'s BINDER</h1>
   </header>

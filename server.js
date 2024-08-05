@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
+const setLoggedInUser = require('./middleware/setLoggedInUser');
 
 const authController = require('./controllers/auth.js');
 const cinemasController = require('./controllers/cinemas.js');
@@ -34,6 +35,8 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+app.use(setLoggedInUser);
 
 // Middleware to serve static files
 app.use(express.static('public'));
