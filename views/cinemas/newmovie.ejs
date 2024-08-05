@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Movies</title>
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/pages/new.css">
 </head>
 <body>
 <%- include('../partials/nav') %>
@@ -12,6 +14,7 @@
     <h1>Add Movies</h1>
     <p>Use this form to add a new movie to your collection</p>
     <form action="/cinemas/newmovie" method="POST">
+      <label for="title">Title</label>
       <input type="text" name="title" id="title" list="titles" required />
       <datalist id="titles"></datalist>
       
