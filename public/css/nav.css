@@ -83,4 +83,41 @@ html, body {
 .header .sign-out-button:hover {
     background-color: #e84118;
 }
-  
+
+@media (max-width: 600px) {
+    .header {
+        padding: 0 1rem;
+    }
+
+    .header .logo {
+        font-size: 1.2rem;
+        padding-left: 0;
+    }
+
+    .header .navigation ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header .navigation ul li {
+        margin-right: 0.5rem;
+    }
+
+    .header .navigation ul li a {
+        font-size: 0.9rem;
+    }
+
+    .header .user-info {
+        margin-right: 0.5rem;
+    }
+
+    .header .username {
+        font-size: 0.9rem;
+        margin-right: 0.5rem;
+    }
+
+    .header .sign-out-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}

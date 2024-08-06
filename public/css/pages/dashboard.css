@@ -80,4 +80,44 @@ body {
 .dashboard-main table a:hover {
     text-decoration: underline;
 }
-  
+
+@media (max-width: 600px) {
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+
+    .dashboard-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard-nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .dashboard-nav ul li a {
+        font-size: 1rem;
+    }
+
+    .dashboard-main {
+        margin: 1rem auto;
+    }
+
+    .dashboard-main h2 {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-main table th, .dashboard-main table td {
+        padding: 0.5rem;
+    }
+
+    .dashboard-main table th, .dashboard-main table td {
+        font-size: 0.9rem;
+    }
+
+    .dashboard-main table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+}
