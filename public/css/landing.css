@@ -58,3 +58,38 @@ main .intro p {
 .buttons a button:active {
     background-color: #777;
 }
+
+@media (max-width: 600px) {
+    header {
+        padding: 1rem 0;
+        margin-top: 50px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main .intro {
+        padding: 1rem 0;
+    }
+
+    main .intro img {
+        width: 150px;
+    }
+
+    main .intro p {
+        font-size: 1rem;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .buttons a button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
