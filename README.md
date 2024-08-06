@@ -1,7 +1,7 @@
 # Binge Binder
 <div id="header" align="center">
 
-  <img src="public/images/binge-binder-logo.png" width="800" height="400">
+  <img src="public/images/binge-binder-logo.png" width="400" height="400">
 
 </div>
 
