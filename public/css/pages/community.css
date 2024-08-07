@@ -71,3 +71,36 @@ h1 {
     background-color: #454545;
     padding: 10px;
 }
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+        margin: 1rem;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .community-grid {
+        gap: 1rem;
+    }
+
+    .community-entry {
+        padding: 1rem;
+    }
+
+    .community-entry h2, .community-entry h3 {
+        font-size: 1.2rem;
+    }
+
+    .community-entry p {
+        font-size: 1rem;
+    }
+
+    .review {
+        padding: 0.5rem;
+    }
+}
