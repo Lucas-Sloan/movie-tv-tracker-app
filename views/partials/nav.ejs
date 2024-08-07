@@ -2,14 +2,17 @@
 <link rel="stylesheet" href="/css/nav.css">
 <header class="header">
   <nav class="navigation">
-    <ul>
+    <button class="menu-toggle" id="menu-toggle">
+      ☰
+    </button>
+    <ul id="menu">
       <li><a href="/cinemas/dashboard">My Binder</a></li>
       <li><a href="/users/community">Community</a></li>
       <li><a href="/cinemas/newmovie">Add Movie</a></li>
       <li><a href="/cinemas/newtv">Add TV Show</a></li>
     </ul>
   </nav>
-  <img src="/images/binge-binder-logo.png" alt="Binge Binder Logo" style="width: 40px; height: 40px;"> 
+  <img src="/images/binge-binder-logo.png" alt="Binge Binder Logo" style="width: 40px; height: 40px;">
   <h2 class="logo">Binge Binder</h2>
   <% if (loggedInUser) { %>
     <div class="user-info">
@@ -20,3 +23,4 @@
     </div>
   <% } %>
 </header>
+<script src="/js/menu.js"></script>
