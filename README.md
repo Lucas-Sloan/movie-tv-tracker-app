@@ -9,7 +9,7 @@
 
   # Binge Binder
 
-  ### [Explore Now](#) <!-- Update this link when the app is hosted -->
+  ### [Explore Now](https://movie-tv-tracker-app-4cc93bd8d57e.herokuapp.com/)
 
   ##### Lucas Sloan
 
