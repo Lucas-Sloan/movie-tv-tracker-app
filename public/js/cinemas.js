@@ -1,4 +1,3 @@
-//public/js/cinema.js
 document.addEventListener('DOMContentLoaded', () => {
     const titleInput = document.getElementById('title');
     titleInput.addEventListener('input', () => fetchTitles(titleInput.value));

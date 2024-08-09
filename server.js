@@ -1,4 +1,3 @@
-//server.js
 const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
@@ -23,10 +22,10 @@ mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
-// Middleware
+
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-// app.use(morgan('dev'));
+
 
 app.use(
   session({
@@ -38,10 +37,10 @@ app.use(
 
 app.use(setLoggedInUser);
 
-// Middleware to serve static files
+
 app.use(express.static('public'));
 
-// Routes
+
 app.use(passUserToView); 
 app.use('/auth', authController);
 app.use('/cinemas', cinemasController);
