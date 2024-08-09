@@ -29,6 +29,7 @@
  - The inspiration for Binge Binder came from a desire to organize and keep track of all the TV shows and movies I've watched or plan to watch.
  - This project combines the use of MongoDB, Express.js, and EJS for server-side rendering with a focus on a dark-themed, visually appealing UI.
  - The use of the OMDB API enhances the user experience by providing dynamic suggestions for titles and automatically fetching descriptions for added movies and TV shows.
+ - https://trello.com/b/cQvf7xDB/movie-tv-show-tracker-app-planning
 
 </div>
 
